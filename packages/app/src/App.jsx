@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import Consent from './components/consent';
-import TKWW from './components/svg/tkww';
+import Hero from './components/hero';
 
-function App() {
+const App = () => {
   return (
     <Fragment>
-      <TKWW />
+      <Hero />
       <Consent />
     </Fragment>
   );

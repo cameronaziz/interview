@@ -1,0 +1,32 @@
+.hero {
+  position: relative;
+}
+
+.hero-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  top: -40px;
+  right: -32px;
+  border: 4px blue solid;
+  background-color: blueviolet;
+}
+
+
+.badge {
+ text-align: center;
+ color: darkturquoise;
+ font-weight: 900;
+}

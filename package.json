@@ -7,8 +7,13 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "all:start": "concurrently \"yarn server:start\" \"yarn app:start\"",
+    "server:start": "yarn workspace @tkmp-interview/server start",
+    "app:start": "yarn workspace @tkmp-interview/app start"
   },
   "author": "TKMP Team",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "concurrently": "^6.0.2"
+  }
 }
