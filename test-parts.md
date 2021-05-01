@@ -18,14 +18,16 @@ This part of the exercise is to watch the candidate investigate problems that do
 This part of the exercise is to watch the candidate develop a new feature.
 - Has the candidate begun to understand the codebase?
 - Did the candidate write clean code?
+- Was the candidate able to build the feature and talk out his methodology?
 --- 
 ## Part 4
-- This part of the exercise can go various routes.
+This part of the exercise is to watch the candidate investigate problems and find solutions.
 - How does the candidate view issues with the application? Do they view everything as ok?
-- Does the candidate find issues and fins ways to fix them?
-- if they are struggling with issues to solve, suggest the issues below.
+- Does the candidate find issues and come up with ways to fix them?
 
-***Do not expect the candidate to find these problems***
+If they are struggling with issues to solve, suggest the issues below.\
+*Do not expect the candidate to find these specific problems*
+
 1. Remember Assignments
    - It seems like you are getting new assignments each time the user comes back to your page.
      - Does the candidate see the difference each time he refreshes?
