@@ -52,8 +52,8 @@ var flipper = function (event) { return __awaiter(void 0, void 0, void 0, functi
         experiment = experiments_1.default.find(function (e) { return e.id === experimentId; });
         if (!experiment) {
             return [2 /*return*/, {
-                    statusCode: 404,
-                    body: "Experiment " + experimentId + " is not a valid experiment.",
+                    statusCode: 200,
+                    body: JSON.stringify({ assignment: null, error: "Experiment " + experimentId + " is not a valid experiment.", }),
                 }];
         }
         rollout = experiment.rollout, assignments = experiment.assignments;

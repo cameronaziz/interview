@@ -1,39 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import { errorBoundary } from '../../errorBoundary';
+import cookie from '../../services/cookie';
 import experiments from '../../services/experiments';
+import { EXPERIMENT_ID } from '../../settings';
 import TKWW from '../svg/tkww';
 import Badge from './badge';
 import './styled.css';
 
 const Hero = () => {
-  const [isInExperiment, setIsInExperiment] = useState(false);
+  const [experiment, setExperiment] = useState(null);
 
   useEffect(
     () => {
-      getExperiment()
+      getExperiment();
     },
     [],
   );
 
   const getExperiment = async () => {
-    const data = await experiments.getAssignment('b3326ffc-6bf6-4670-a4d0-797a8bb491c3')
-    if (!data) {
-      return;
-    }
-    if (data.assignment.name === 'test') {
-      setIsInExperiment(true);
+    const consent = cookie.read('consent');
+    if (consent === 'true') {
+      const data = await experiments.getAssignment(EXPERIMENT_ID);
+      setExperiment(data);
     }
   };
 
   return (
     <div className="hero-container">
       <div className="hero">
-        {isInExperiment &&
-          <Badge />
-        }
+        <Badge experiment={experiment} />
         <TKWW />
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default errorBoundary(Hero);

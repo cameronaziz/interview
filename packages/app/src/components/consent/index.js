@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { errorBoundary } from '../../errorBoundary';
 import cookie from '../../services/cookie';
 import Button from './button';
 import './styles.css';
 
-const Consent = () => {
-  const [isShown, setIsShown] = useState(false);
-
-  useEffect(
-    () => {
-      const isConsent = cookie.read('consent');
-      if (!isConsent) {
-        setIsShown(true);
-      }
-    },
-    [],
-  );
+const Consent = (props) => {
+  const { isConsent, cookieListener } = props;
+  const hasConsent = isConsent || false;
+  const [isShown, setIsShown] = useState(!hasConsent);
 
   const handleClick = (value) => {
-    cookie.set('consent', value);
+    cookie.set('consent', value, cookieListener);
     setIsShown(false);
   };
 
@@ -34,4 +27,4 @@ const Consent = () => {
   );
 };
 
-export default Consent;
+export default errorBoundary(Consent);

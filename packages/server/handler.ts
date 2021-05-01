@@ -14,8 +14,8 @@ export const flipper: APIGatewayProxyHandler = async (event) => {
 
   if (!experiment) {
     return {
-      statusCode: 404,
-      body: `Experiment ${experimentId} is not a valid experiment.`,
+      statusCode: 200,
+      body: JSON.stringify({ assignment: null, error: `Experiment ${experimentId} is not a valid experiment.`, }),
     };
   }
 

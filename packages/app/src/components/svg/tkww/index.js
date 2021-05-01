@@ -1,4 +1,5 @@
 import React from 'react';
+import { errorBoundary } from '../../../errorBoundary';
 import './styles.css';
 
 const TKWW = () => (
@@ -41,4 +42,4 @@ const TKWW = () => (
   </div>
 );
 
-export default TKWW;
+export default errorBoundary(TKWW);

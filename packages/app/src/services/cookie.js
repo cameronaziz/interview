@@ -6,15 +6,30 @@ const read = (key) => {
       value: raw[1],
     }
   });
-  return cookies.find((c) => c.key === key);
+  const cookie = cookies.find((c) => c.key === key);
+
+  if (cookie) {
+    return cookie.value;
+  }
+
+  return null;
 }
 
-const set = (key, value) => {
-  const date = new Date()
-  date.setSeconds(date.getSeconds() + 15)
+const set = (key, value, listener) => {
+  const date = new Date();
+  date.setSeconds(date.getSeconds() + 15);
+
   const expires = date.toUTCString();
   const cookie = `${key}=${value}; expires=${expires};`;
+
   document.cookie = cookie;
+
+  if (listener) {
+    listener({
+      key,
+      value,
+    });
+  }
 };
 
 const cookie = {
