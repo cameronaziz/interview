@@ -1,5 +1,6 @@
 > ## Internal Use Only
-> This branch contains a working application. All solutions have been implemented.
+> This branch contains a working application. All solutions have been implemented. Each part has a guide to help the candidate through the exercise, the solutions, as well has what to look for.
+> Take a look at the [compare](https://github.com/cameronaziz/tkmp-interview/compare/internal) of this branch and the main branch to see changes needed to solve this exercise.
 
 # TKMP Interview
 Take a moment to familiarize yourself with the application. The goal of the application is to have a consent pop up from the bottom. If the user selects 'Allow', they will be able to randomly assigned into an A/B test. If they select 'Deny', they should not be assigned a test group.
@@ -67,7 +68,7 @@ As a user who accepts cookies
 ```
 > ### Solution
 > - The candidate needs to first check the `isConsent` state in a`useEffect` hook and only call `getExperiment` if it is true.
-> - **Nice to have:** The candidate remembers to add `[isConsent]` has the second parameter of the hook with no help.
+> - **Nice to have:** The candidate remembers to add `[isConsent]` as the second parameter of the hook with no help.
 > ### What to look for
 > This part of the exercise is to watch the candidate develop a new feature.
 > - Has the candidate begun to understand the codebase?
@@ -80,12 +81,12 @@ It looks done right? Do you see any issues? Talk one of them out and we will fix
 > ### Solution
 > If they are struggling with issues to solve, suggest the issues below.\
 > *Do not expect the candidate to find these specific problems*
->
 > 1. Remember Assignments
 >    - **Prompt**
 >       - It seems like you are getting new assignments each time the user comes back to your page. How can we remember what assignment the user got the last time?
 >    - **Implementation**
 >       - In the `Hero` component's `useEffect` hook, create a call to `cookies.write` once the assignment is returned.
+>       - The component should also call `cookies.read` to retrieve the locally stored assignment.
 >    - **What to look for**
 >      - Does the candidate save the cookie with `JSON.stringify` and use `JSON.parse` after reading it?
 > 2. The Blip
@@ -95,6 +96,7 @@ It looks done right? Do you see any issues? Talk one of them out and we will fix
 >       - In the `App` component, move the `cookieValueToBoolean` and `cookie.read` into a `useRef`, not using a `useEffect`.
 >    - **What to look for**
 >      - Is the candidate comfortable using `useRef`?
+>      - Does the candidate attempt to get the cookie outside of the component (this will fail as every user will get the same cookie)?
 > ### What to look for
 > This part of the exercise is to watch the candidate investigate problems and implement solutions.
 > - Does the candidate see the difference each time he refreshes?
@@ -104,3 +106,8 @@ It looks done right? Do you see any issues? Talk one of them out and we will fix
 ---
 ## Part 5
 Great work, ready to ship! Do you see any more problems? Our PM loves when we show him the issues so that he can allocate the time to fix it. Don't worry, this part is no coding. We just want to know what problems you might bring up to our PM.
+
+> ### What to look for
+> - Alike part 4, how does the candidate see problems?
+> - Is the candidate afraid of bringing up issues?
+> - **Nice to have:** Does the candidate see any SSR or SEO issues?
