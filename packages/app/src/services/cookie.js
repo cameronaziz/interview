@@ -1,3 +1,7 @@
+const UNIQUE_KEY = 'tkmp-cookie-storage_';
+
+const keyToUnique = (key) => `${UNIQUE_KEY}${key}`;
+
 const read = (key) => {
   const cookies = document.cookie.split(';').map((c) => {
     const raw = c.trim().split('=');
@@ -6,7 +10,7 @@ const read = (key) => {
       value: raw[1],
     }
   });
-  const cookie = cookies.find((c) => c.key === key);
+  const cookie = cookies.find((c) => c.key === keyToUnique(key));
 
   if (cookie) {
     return cookie.value;
@@ -18,7 +22,7 @@ const read = (key) => {
 const write = (key, value, listener) => {
   const date = new Date();
   const expires = date.toUTCString();
-  const cookie = `${key}=${value}; expires=${expires};`;
+  const cookie = `${keyToUnique(key)}=${value}; expires=${expires};`;
 
   document.cookie = cookie;
 
