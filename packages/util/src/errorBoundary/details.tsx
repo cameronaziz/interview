@@ -1,27 +1,21 @@
-import React, { useRef } from 'react';
+import React, { ErrorInfo, FunctionComponent, MouseEvent, useRef } from 'react';
+import { splitLocation } from './utils';
 
-const splitLocation = (stack) =>
-  stack.map(
-    (stackCall) =>
-      stackCall
-        .split('(')
-        .map(
-          (callItem) =>
-            callItem.endsWith(')') ?
-              callItem.substring(0, callItem.length - 1) :
-              callItem
-        )
-  );
+interface DetailsProps {
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
+  closeDetails(event: MouseEvent<HTMLDivElement>): void;
+}
 
 
-const Details = (props) => {
+const Details: FunctionComponent<DetailsProps> = (props) => {
   const { error, errorInfo, closeDetails } = props
   const overlayRef = useRef(null);
-  const callStack = error.stack ? error.stack.split('\n') : null;
+  const callStack = error?.stack ? error.stack.split('\n') : [];
   callStack.shift();
-  const componentStack = errorInfo.componentStack.split('\n');
+  const componentStack = errorInfo?.componentStack.split('\n') || [];
 
-  const clickOverlay = (event) => {
+  const clickOverlay = (event: MouseEvent<HTMLDivElement>) => {
     if (overlayRef.current && event.target === overlayRef.current) {
       closeDetails(event);
     }
@@ -36,8 +30,7 @@ const Details = (props) => {
           </div>
         </div>
         <div className="error-details-title">
-          {error.message}
-
+          {error?.message || 'An Error Ocurred'}
         </div>
         <div className="error-details-content">
           <div className="error-details-stack">

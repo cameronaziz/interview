@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { ErrorInfo, FunctionComponent, MouseEvent, useState } from 'react';
 import Details from './details';
 
-const ErrorUI = (props) => {
+interface ErrorUIProps {
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
+}
+
+const ErrorUI: FunctionComponent<ErrorUIProps> = (props) => {
   const { error, errorInfo } = props;
   const [isDetailsShown, setIsDetailsShown] = useState(false);
 
@@ -9,7 +14,7 @@ const ErrorUI = (props) => {
     setIsDetailsShown(true);
   };
 
-  const closeDetails = (event) => {
+  const closeDetails = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     setIsDetailsShown(false);
   };

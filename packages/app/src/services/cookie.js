@@ -15,9 +15,9 @@ const read = (key) => {
   return null;
 }
 
-const set = (key, value, listener) => {
+const write = (key, value, listener) => {
   const date = new Date();
-  date.setSeconds(date.getSeconds() + 15);
+  date.setFullYear(date.getFullYear() + 1);
 
   const expires = date.toUTCString();
   const cookie = `${key}=${value}; expires=${expires};`;
@@ -33,8 +33,8 @@ const set = (key, value, listener) => {
 };
 
 const cookie = {
-  set,
   read,
+  write,
 };
 
 export default cookie;

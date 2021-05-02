@@ -14,7 +14,7 @@ export const flipper: APIGatewayProxyHandler = async (event) => {
 
   if (!experiment) {
     return {
-      statusCode: 200,
+      statusCode: 404,
       body: JSON.stringify({ assignment: null, error: `Experiment ${experimentId} is not a valid experiment.`, }),
     };
   }
@@ -39,9 +39,14 @@ export const flipper: APIGatewayProxyHandler = async (event) => {
     assignmentNumber -= allocation;
   }
 
+  const assignment = {
+    id: assignments[index].id,
+    name: assignments[index].name
+  }
+
   return {
     statusCode: 200,
-    body: JSON.stringify({ assignment: assignments[index] }),
+    body: JSON.stringify({ assignment }),
   };
 
 };

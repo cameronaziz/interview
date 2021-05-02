@@ -1,0 +1,18 @@
+{
+  "name": "@tkmp-interview/util",
+  "version": "0.1.0",
+  "types": "./lib",
+  "main": "./lib",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "copyfiles": "^2.4.1",
+    "react": "^17.0.2",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "postinstall": "tsc && yarn run copy-files",
+    "copy-files": "copyfiles -u 1 src/**/*.css lib"
+  }
+}

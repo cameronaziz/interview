@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, ErrorInfo } from 'react';
 import './styles.css';
 import ErrorUI from './ui';
 
 class ErrorBoundary extends Component {
   state = { error: null, errorInfo: null };
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState({
       error: error,
       errorInfo: errorInfo

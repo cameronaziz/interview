@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import DidCatch from './didCatch';
 
-export function errorBoundary(OriginalReactComponent) {
+const errorBoundary = (OriginalReactComponent: ComponentType) => {
   return class extends Component {
     render() {
       return (
