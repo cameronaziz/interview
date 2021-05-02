@@ -7,13 +7,14 @@
     "packages/*"
   ],
   "scripts": {
-    "all:start": "concurrently \"yarn server:start\" \"yarn app:start\"",
+    "all:start": "node ./start.js && concurrently \"yarn server:start\" \"yarn app:start\"",
     "server:start": "yarn workspace @tkmp-interview/server start",
     "app:start": "yarn workspace @tkmp-interview/app start"
   },
   "author": "TKMP Team",
   "license": "UNLICENSED",
   "dependencies": {
-    "concurrently": "^6.0.2"
+    "concurrently": "^6.0.2",
+    "rimraf": "^3.0.2"
   }
 }
