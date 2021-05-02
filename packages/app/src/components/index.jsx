@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import cookie from '../services/cookie';
 import Consent from './consent';
 import Hero from './hero';
