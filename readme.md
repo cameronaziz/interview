@@ -43,7 +43,7 @@ The application seems to have a few bugs. It doesn't look like users are able to
 
 ---
 ## Part 2
-Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our page. We should be able to remember the selection for a year.
+Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our site. We should be able to remember the selection for a year.
 > ### Solution
 > - The `cookie.write` function is setting the expiry time to current time.
 > ### What to look for
@@ -64,7 +64,7 @@ As a user who accepts cookies
 ```
 ---
 ## Part 4
-It looks done right? Do you see any issues? Talk one of them out and we will fix it now.
+It looks done right? Do you see any issues? Talk one of them out and we will fix one now.
 > ### Solution
 > If they are struggling with issues to solve, suggest the issues below.\
 > *Do not expect the candidate to find these specific problems*
