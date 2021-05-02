@@ -7,7 +7,7 @@ There are many parts of this exercise. It is completely okay if we don't finish.
 Each component of the application is wrapped in an `errorBoundary` higher order component. These will help you with debugging. If you notice them in the UI, you may click them to see both the component stack and the call stack of the error.
 
 ---
-All code changes will be within the 
+All code changes will be within the `packages/app/src` folder. All other directories can be ignored.
 
 ---
 To run the application, clone this repository and run the following from the root of the application
@@ -34,7 +34,7 @@ The application seems to have a few bugs. It doesn't look like users are able to
 ## Part 2
 Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our page. We should be able to remember the selection for a year.
 > ### Solution
-> - The `cookie.write` function is setting the expiry time to current time. 
+> - The `cookie.write` function is setting the expiry time to current time.
 > ### What to look for
 > This part of the exercise is to watch the candidate investigate problems that don't show errors.
 > - Did they navigate the component tree logically to find the problem service?
@@ -65,7 +65,7 @@ It looks done right? Do you see any issues? Talk one of them out and we will fix
 > ### Solution
 > If they are struggling with issues to solve, suggest the issues below.\
 > *Do not expect the candidate to find these specific problems*
-> 
+>
 > 1. Remember Assignments
 >    - **Prompt**
 >       - It seems like you are getting new assignments each time the user comes back to your page. How can we remember what assignment the user got the last time?
