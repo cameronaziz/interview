@@ -1,10 +1,10 @@
 # TKMP Interview
-Take a moment to familiarize yourself with the application. The goal of the application is to have a consent pop up from the bottom and if the user selects 'Allow', they will be able to randomly assigned into an A/B test. If they select 'Deny', they should not be assigned a test group.
+Take a moment to familiarize yourself with the application. The goal of the application is to have a consent pop up from the bottom. If the user selects 'Allow', they will be able to randomly assigned into an A/B test. If they select 'Deny', they should not be assigned a test group.
 
 There are many parts of this exercise. It is completely okay if we don't finish. We are not only watching you work through the problem, but **how** you work through the problem.
 
 ---
-Each component of the application is wrapped in an `errorBoundary` higher order component. These will help you with debugging. If you notice them in the UI, you may click them to see both the component stack and the call stack of the error.
+Each component of the application is wrapped in an `errorBoundary` higher order component. These will help you with debugging. If you notice them in the UI, you may click them to see both the component stack and the call stack of the error. The developer tools console and network tab may also be helpful.
 
 ---
 All code changes will be within the `packages/app/src` folder. All other directories can be ignored.
@@ -32,7 +32,7 @@ The application seems to have a few bugs. It doesn't look like users are able to
 > - Were they able to read and understand call stacks?
 ---
 ## Part 2
-Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our page. We should be able to remember the selection for a year.
+Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our site. We should be able to remember the selection for a year.
 > ### Solution
 > - The `cookie.write` function is setting the expiry time to current time.
 > ### What to look for
@@ -43,7 +43,7 @@ Your project manager just reported another bug! It seems that every user that cl
 > - **Nice to have:** Does the candidate already know cookie syntax or can read MDN and understand immediately?
 ---
 ## Part 3
-Great! It looks like all the bugs are fixed, but every user that comes to our site still gets an assignment. Your PM created the following Jira issue:
+Great! It looks like all the bugs are fixed, but every user that comes to our site still gets a new assignment. Your PM created the following Jira issue:
 ```
 Our policy at The Knot is anyone that denies cookies should be assigned to the `original` group.
 As a user who denies cookies
@@ -61,7 +61,7 @@ As a user who accepts cookies
 > - Did the candidate talk out his methodology?
 ---
 ## Part 4
-It looks done right? Do you see any issues? Talk one of them out and we will fix it now.
+It looks done right? Do you see any issues? Talk one of them out and we will fix one now.
 > ### Solution
 > If they are struggling with issues to solve, suggest the issues below.\
 > *Do not expect the candidate to find these specific problems*
