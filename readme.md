@@ -1,3 +1,6 @@
+> ## Internal Use Only
+> This branch contains a working application. All solutions have been implemented.
+
 # TKMP Interview
 Take a moment to familiarize yourself with the application. The goal of the application is to have a consent pop up from the bottom. If the user selects 'Allow', they will be able to randomly assigned into an A/B test. If they select 'Deny', they should not be assigned a test group.
 
@@ -6,11 +9,32 @@ There are many parts of this exercise. It is completely okay if we don't finish.
 ---
 Each component of the application is wrapped in an `errorBoundary` higher order component. These will help you with debugging. If you notice them in the UI, you may click them to see both the component stack and the call stack of the error. The developer tools console and network tab may also be helpful.
 
----
 All code changes will be within the `packages/app/src` folder. All other directories can be ignored.
 
 ---
-To run the application, clone this repository and run the following from the root of the application
+This exercise requires both `node` and `yarn` to be installed.
+## Node Install
+### macOS
+&nbsp;&nbsp;&nbsp;&nbsp;**HomeBrew**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`brew install node`\
+&nbsp;&nbsp;&nbsp;&nbsp;**cURL**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`\
+&nbsp;&nbsp;&nbsp;&nbsp;**Web** 
+-  Navigate to the Node install website [here](https://nodejs.org/en/download/).
+-  Click the macOS Installer icon to begin the download.
+-  Install the `.pkg`.
+
+### Windows
+- Navigate to the Node install website [here](https://nodejs.org/en/download/).
+- Click the Windows Installer icon to begin the download.
+- Install the `.msi`.
+  
+## Yarn Install
+- Open a terminal window
+- Execute `npm install --global yarn`
+---
+
+To run the application, clone this repository and run the following from the root of the application.
 ```
 > yarn
 > yarn all:start
@@ -52,7 +76,7 @@ As a user who accepts cookies
   They should should request an assignment from the API and see the assigned view.
 ```
 > ### Solution
-> - The candidate needs to first check the `isConsent` state in an `useEffect` hook and only call `getExperiment` if it is true.
+> - The candidate needs to first check the `isConsent` state in a`useEffect` hook and only call `getExperiment` if it is true.
 > - **Nice to have:** The candidate remembers to add `[isConsent]` has the second parameter of the hook with no help.
 > ### What to look for
 > This part of the exercise is to watch the candidate develop a new feature.
@@ -62,6 +86,7 @@ As a user who accepts cookies
 ---
 ## Part 4
 It looks done right? Do you see any issues? Talk one of them out and we will fix one now.
+> If we are close to time, inform the candidate that we will be skipping this part.
 > ### Solution
 > If they are struggling with issues to solve, suggest the issues below.\
 > *Do not expect the candidate to find these specific problems*
@@ -73,8 +98,15 @@ It looks done right? Do you see any issues? Talk one of them out and we will fix
 >       - In the `Hero` component's `useEffect` hook, create a call to `cookies.write` once the assignment is returned.
 >    - **What to look for**
 >      - Does the candidate save the cookie with `JSON.stringify` and use `JSON.parse` after reading it?
+> 2. The Blip
+>    - **Prompt**
+>      - It seems like there is a small blip even if the user is assigned to the `test`. How can we make the test assignment show on the first render?
+>    - **Implementation**
+>       - In the `App` component, move the `cookieValueToBoolean` and `cookie.read` into a `useRef`, not using a `useEffect`.
+>    - **What to look for**
+>      - Is the candidate comfortable using `useRef`?
 > ### What to look for
-> This part of the exercise is to watch the candidate investigate problems and find solutions.
+> This part of the exercise is to watch the candidate investigate problems and implement solutions.
 > - Does the candidate see the difference each time he refreshes?
 > - How does the candidate view issues with the application? Do they view everything as ok?
 > - Does the candidate find issues and come up with ways to fix them?

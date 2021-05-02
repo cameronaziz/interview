@@ -1,45 +1,22 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useRef } from 'react';
 import cookie from '../services/cookie';
 import Consent from './consent';
 import Hero from './hero';
+import { cookieValueToBoolean } from './utils';
 
 const App = () => {
-  const [isConsent, setIsConsent] = useState(null);
-
-  useEffect(
-    () => {
-      const consent = cookie.read('consent');
-      cookieSwitch(consent);
-    },
-    [],
-  );
-
-  const cookieSwitch = (value) => {
-    switch (value) {
-      case 'true': {
-        setIsConsent(true);
-        break;
-      }
-      case 'false': {
-        setIsConsent(false);
-        break
-      }
-      default: {
-        setIsConsent(null);
-      };
-    }
-  };
+  const isConsent = useRef(cookieValueToBoolean(cookie.read('consent')))
 
   const listener = (cookie) => {
     if (cookie.key === 'consent') {
-      cookieSwitch(cookie.value);
+      cookieValueToBoolean(cookie.value);
     }
   };
 
   return (
     <Fragment>
-      <Hero isConsent={isConsent} />
-      <Consent isConsent={isConsent} cookieListener={listener} />
+      <Hero isConsent={isConsent.current} />
+      <Consent isConsent={isConsent.current} cookieListener={listener} />
     </Fragment>
   );
 }
