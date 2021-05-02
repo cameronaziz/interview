@@ -18,7 +18,7 @@ const Consent = (props) => {
   );
 
   const handleClick = (value) => {
-    cookie.set('consent', value, cookieListener);
+    cookie.write('consent', value, cookieListener);
     setIsShown(false);
   };
 
