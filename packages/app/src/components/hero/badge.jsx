@@ -1,8 +1,8 @@
+import { errorBoundary } from '@tkmp-interview/util';
 import React from 'react';
-import { errorBoundary } from '../../errorBoundary';
 
 const Badge = (props) => {
-  if (props.experiment === null || props.experiment.assignment.name !== 'test') {
+  if (props.assignment === null || props.assignment?.name !== 'test') {
     return null;
   }
 

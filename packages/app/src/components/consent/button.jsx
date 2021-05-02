@@ -1,5 +1,5 @@
+import { errorBoundary } from '@tkmp-interview/util';
 import React from 'react';
-import { errorBoundary } from '../../errorBoundary';
 
 const Button = (props) => {
   const { buttonType, onClick } = props;
@@ -9,12 +9,14 @@ const Button = (props) => {
     onClick(buttonType === 'confirm');
   };
 
+  const label = buttonType === 'confirm' ? 'Allow' : 'Deny';
+
   return (
     <button
-      onClick={handlClick}
+      onClick={handleClick}
       className={`consent-button ${buttonTypeClass}`}
     >
-      {buttonType === 'confirm' ? 'Allow' : 'Deny'}
+      {label}
     </button>
   );
 };

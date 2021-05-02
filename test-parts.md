@@ -1,18 +1,8 @@
 ## Part 1
-This part of the exercise is to watch the candidate see an error message and understand how they approach the problem.
 
-- Do they see the errors in the application?
-- Did they intuitively look at console to see error?
-- Were they able to read and understand call stacks?
-- If they solved the button issue, did they see the assignment issue?
 ---
 ## Part 2
-This part of the exercise is to watch the candidate investigate problems that don't show errors.
 
-- Did they navigate the component tree logically to find the problem service?
-- Were they able to read confusing code and understand how it works?
-- If they don't know exact cookie logic (COMPLETELY OK!!), do they know what resources to look at (MDN, W3Schools)?
-> **Nice to have:** Does the candidate already know cookie syntax or can read MDN and understand immediately?
 ---
 ## Part 3
 This part of the exercise is to watch the candidate develop a new feature.

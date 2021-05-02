@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.flipper = void 0;
 var experiments_1 = require("./experiments");
 var flipper = function (event) { return __awaiter(void 0, void 0, void 0, function () {
-    var experimentId, experiment, rollout, assignments, rolloutNumber, assignmentNumber, index, allocation;
+    var experimentId, experiment, rollout, assignments, rolloutNumber, assignmentNumber, index, allocation, assignment;
     var _a;
     return __generator(this, function (_b) {
         if (!((_a = event.pathParameters) === null || _a === void 0 ? void 0 : _a.experimentId)) {
@@ -52,7 +52,7 @@ var flipper = function (event) { return __awaiter(void 0, void 0, void 0, functi
         experiment = experiments_1.default.find(function (e) { return e.id === experimentId; });
         if (!experiment) {
             return [2 /*return*/, {
-                    statusCode: 200,
+                    statusCode: 404,
                     body: JSON.stringify({ assignment: null, error: "Experiment " + experimentId + " is not a valid experiment.", }),
                 }];
         }
@@ -72,9 +72,13 @@ var flipper = function (event) { return __awaiter(void 0, void 0, void 0, functi
             allocation = assignments[index].allocation;
             assignmentNumber -= allocation;
         }
+        assignment = {
+            id: assignments[index].id,
+            name: assignments[index].name
+        };
         return [2 /*return*/, {
                 statusCode: 200,
-                body: JSON.stringify({ assignment: assignments[index] }),
+                body: JSON.stringify({ assignment: assignment }),
             }];
     });
 }); };

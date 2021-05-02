@@ -1,8 +1,8 @@
-import React from 'react';
-import { errorBoundary } from '../../../errorBoundary';
+import React, { FunctionComponent } from 'react';
+import errorBoundary from '../errorBoundary';
 import './styles.css';
 
-const TKWW = () => (
+const TKWW: FunctionComponent = () => (
   <div className="tkww-icon">
     <svg id="Union__brands-v1__icon-tkww_lg" viewBox="0 0 93 32">
       <title id="Union__brands-v1__icon-tkww_lg_title">The Knot Worldwide</title>

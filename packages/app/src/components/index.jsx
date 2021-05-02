@@ -1,22 +1,21 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Consent from './components/consent';
-import Hero from './components/hero';
-import cookie from './services/cookie';
+import cookie from '../services/cookie';
+import Consent from './consent';
+import Hero from './hero';
 
 const App = () => {
   const [isConsent, setIsConsent] = useState(null);
 
-
   useEffect(
     () => {
       const consent = cookie.read('consent');
-      cookieSwitch(consent)
+      cookieSwitch(consent);
     },
     [],
   );
 
   const cookieSwitch = (value) => {
-    switch (cookie.value) {
+    switch (value) {
       case 'true': {
         setIsConsent(true);
         break;
@@ -39,7 +38,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Hero />
+      <Hero isConsent={isConsent} />
       <Consent isConsent={isConsent} cookieListener={listener} />
     </Fragment>
   );
