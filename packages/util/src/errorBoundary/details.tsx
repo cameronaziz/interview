@@ -1,12 +1,11 @@
-import React, { ErrorInfo, FunctionComponent, MouseEvent, useRef } from 'react';
-import { splitLocation } from './utils';
+import React, { ErrorInfo, FunctionComponent, MouseEvent, useEffect, useRef } from 'react';
+import Detail from './detail';
 
 interface DetailsProps {
   error: Error | null;
   errorInfo: ErrorInfo | null;
-  closeDetails(event: MouseEvent<HTMLDivElement>): void;
+  closeDetails(): void;
 }
-
 
 const Details: FunctionComponent<DetailsProps> = (props) => {
   const { error, errorInfo, closeDetails } = props
@@ -15,11 +14,29 @@ const Details: FunctionComponent<DetailsProps> = (props) => {
   callStack.shift();
   const componentStack = errorInfo?.componentStack.split('\n') || [];
 
+  useEffect(
+    () => {
+      window.addEventListener('keydown', keyDown);
+
+      return () => {
+        window.removeEventListener('keydown', keyDown);
+      }
+    },
+    [],
+  );
+
+  const keyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      closeDetails();
+    }
+  };
+
   const clickOverlay = (event: MouseEvent<HTMLDivElement>) => {
     if (overlayRef.current && event.target === overlayRef.current) {
-      closeDetails(event);
+      event.stopPropagation();
+      closeDetails();
     }
-  }
+  };
 
   return (
     <div ref={overlayRef} className="error-details-overlay" onClick={clickOverlay}>
@@ -33,45 +50,9 @@ const Details: FunctionComponent<DetailsProps> = (props) => {
           {error?.message || 'An Error Ocurred'}
         </div>
         <div className="error-details-content">
-          <div className="error-details-stack">
-            <div className="error-details-stack-title">
-              Component Stack
-            </div>
-            <div className="error-details-stack-content">
-              {splitLocation(componentStack).map((stackCall, index) =>
-                <div key={`${stackCall}-${index}`}>
-                  {stackCall.map((item, index) =>
-                    <div
-                      key={`${item}-${index}`}
-                      className={`${index === 0 ? '' : 'error-details-stack-indent'}`}
-                    >
-                      {item}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-          {callStack &&
-            <div className="error-details-stack">
-              <div className="error-details-stack-title">
-                Call Stack
-              </div>
-              <div className="error-details-stack-content">
-                {splitLocation(callStack).map((stackCall, index) =>
-                  <div key={`${stackCall}-${index}`}>
-                    {stackCall.map((item, index) =>
-                      <div
-                        key={`${item}-${index}`}
-                        className={`${index === 0 ? '' : 'error-details-stack-indent'}`}
-                      >
-                        {item}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
+          <Detail stack={componentStack} name="Component" />
+          {callStack.length > 0 &&
+            <Detail stack={callStack} name="Call" />
           }
         </div>
       </div>
