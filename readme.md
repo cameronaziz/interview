@@ -43,8 +43,15 @@ The application seems to have a few bugs. It doesn't look like users are able to
 
 ---
 ## Part 2
-Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our site. We should be able to remember the selection for a year.
-
+Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our page. We should be able to remember the selection for a year.
+> ### Solution
+> - The `cookie.write` function is setting the expiry time to current time.
+> ### What to look for
+> This part of the exercise is to watch the candidate investigate problems that don't show errors.
+> - Did they navigate the component tree logically to find the problem service?
+> - Were they able to read confusing code and understand how it works?
+> - If they don't know exact cookie logic (COMPLETELY OK!!), do they know what resources to look at (MDN, W3Schools)?
+> - **Nice to have:** Does the candidate already know cookie syntax or can read MDN and understand immediately?
 ---
 ## Part 3
 Great! It looks like all the bugs are fixed, but every user that comes to our site still gets a new assignment. Your PM created the following Jira issue:
@@ -57,7 +64,23 @@ As a user who accepts cookies
 ```
 ---
 ## Part 4
-It looks done right? Do you see any issues? Talk one of them out and we will fix one now.
+It looks done right? Do you see any issues? Talk one of them out and we will fix it now.
+> ### Solution
+> If they are struggling with issues to solve, suggest the issues below.\
+> *Do not expect the candidate to find these specific problems*
+>
+> 1. Remember Assignments
+>    - **Prompt**
+>       - It seems like you are getting new assignments each time the user comes back to your page. How can we remember what assignment the user got the last time?
+>    - **Implementation**
+>       - In the `Hero` component's `useEffect` hook, create a call to `cookies.write` once the assignment is returned.
+>    - **What to look for**
+>      - Does the candidate save the cookie with `JSON.stringify` and use `JSON.parse` after reading it?
+> ### What to look for
+> This part of the exercise is to watch the candidate investigate problems and find solutions.
+> - Does the candidate see the difference each time he refreshes?
+> - How does the candidate view issues with the application? Do they view everything as ok?
+> - Does the candidate find issues and come up with ways to fix them?
 
 ---
 ## Part 5
