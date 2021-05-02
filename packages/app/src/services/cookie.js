@@ -17,8 +17,6 @@ const read = (key) => {
 
 const write = (key, value, listener) => {
   const date = new Date();
-  date.setFullYear(date.getFullYear() + 1);
-
   const expires = date.toUTCString();
   const cookie = `${key}=${value}; expires=${expires};`;
 

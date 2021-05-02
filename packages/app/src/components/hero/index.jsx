@@ -1,35 +1,23 @@
 import { errorBoundary, TKWW } from '@tkmp-interview/util';
 import React, { useEffect, useState } from 'react';
 import experiments from '../../api/experiments';
-import cookie from '../../services/cookie';
 import { EXPERIMENT_ID } from '../../settings';
 import Badge from './badge';
 import './styled.css';
 
-const Hero = (props) => {
-  const { isConsent } = props
+const Hero = () => {
   const [experimentAssignment, setExperimentAssignment] = useState(null);
 
   useEffect(
     () => {
-      if (isConsent) {
-        const assignment = cookie.read('assignment');
-        if (assignment) {
-          setExperimentAssignment(JSON.parse(assignment));
-          return;
-        }
-        getExperiment();
-      }
+      getExperiment();
     },
-    [isConsent],
+    [],
   );
 
   const getExperiment = async () => {
-    if (isConsent) {
-      const data = await experiments.getAssignment(EXPERIMENT_ID);
-      cookie.write('assignment', JSON.stringify(data.assignment));
-      setExperimentAssignment(data);
-    }
+    const data = await experiments.getAssignment(EXPERIMENT_ID);
+    setExperimentAssignment(data);
   };
 
   return (

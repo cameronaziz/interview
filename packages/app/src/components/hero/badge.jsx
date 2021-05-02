@@ -2,7 +2,7 @@ import { errorBoundary } from '@tkmp-interview/util';
 import React from 'react';
 
 const Badge = (props) => {
-  if (props.assignment === null || props.assignment?.name !== 'test') {
+  if (props.assignment === null || props.assignment.name !== 'test') {
     return null;
   }
 

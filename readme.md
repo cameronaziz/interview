@@ -19,9 +19,11 @@ To run the application, clone this repository and run the following from the roo
 ---
 ## Part 1
 The application seems to have a few bugs. It doesn't look like users are able to confirm to allow cookies. Remember, fixing one problem might show another.
+
 ---
 ## Part 2
 Your project manager just reported another bug! It seems that every user that clicks to allow cookies keeps getting the same prompt when they come back to our page. We should be able to remember the selection for a year.
+
 ---
 ## Part 3
 Great! It looks like all the bugs are fixed, but every user that comes to our site still gets an assignment. Your PM created the following Jira issue:
