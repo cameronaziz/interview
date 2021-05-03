@@ -9,7 +9,8 @@ Each component of the application is wrapped in an `errorBoundary` higher order 
 All code changes will be within the `packages/app/src` folder. All other directories can be ignored.
 
 ---
-This exercise requires both `node` and `yarn` to be installed.
+---
+This exercise requires both `node` and `yarn` to be installed on your local machine.
 ## Node Install
 ### macOS
 &nbsp;&nbsp;&nbsp;&nbsp;**HomeBrew**\
@@ -30,13 +31,14 @@ This exercise requires both `node` and `yarn` to be installed.
 - Open a terminal window
 - Execute `npm install --global yarn`
 ---
-
 To run the application, clone this repository and run the following from the root of the application.
 ```
 > yarn
 > yarn all:start
 ```
 ---
+See see your work, we will be checking out a branch titled `FIRSTNAME_LASTNAME`. Once complete, we will commit your code and then pushed to origin. Although this work is a part of this exercise, I'll make sure to remind you when we are done.
+
 ---
 ## Part 1
 The application seems to have a few bugs. It doesn't look like users are able to confirm to allow cookies. Remember, fixing one problem might show another.
