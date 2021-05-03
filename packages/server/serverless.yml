@@ -17,4 +17,4 @@ functions:
           method: get
 custom:
   serverless-offline:
-    httpPort: 4000
+    httpPort: 1899

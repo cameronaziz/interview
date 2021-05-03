@@ -20,6 +20,14 @@
   border-radius: 50%;
   top: -40px;
   right: -32px;
+}
+
+.badge-container-old {
+  border: 4px #00da00 solid;
+  background-color: rgb(226, 43, 52);
+}
+
+.badge-container-new {
   border: 4px blue solid;
   background-color: blueviolet;
 }
