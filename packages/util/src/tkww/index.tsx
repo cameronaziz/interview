@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import '../../assets/styles/tkww.css';
 import errorBoundary from '../errorBoundary';
-import './styles.css';
 
 const TKWW: FunctionComponent = () => (
   <div className="tkww-icon">

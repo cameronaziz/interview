@@ -19,10 +19,12 @@ const ErrorUI: FunctionComponent<ErrorUIProps> = (props) => {
   };
 
   return (
-    <div className="error-container" onClick={showDetails}>
-      <div className="error">Error</div>
-      <div className="error-details">
-        Click to see details
+    <div className="error-container">
+      <div onClick={showDetails}>
+        <div className="error">Error</div>
+        <div className="error-details">
+          Click to see details
+      </div>
       </div>
       {isDetailsShown &&
         <Details error={error} closeDetails={closeDetails} errorInfo={errorInfo} />

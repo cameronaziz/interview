@@ -12,7 +12,11 @@ const Details: FunctionComponent<DetailsProps> = (props) => {
   const overlayRef = useRef(null);
   const callStack = error?.stack ? error.stack.split('\n') : [];
   callStack.shift();
+
   const componentStack = errorInfo?.componentStack.split('\n') || [];
+  const filtered = componentStack
+    .map((item) => item.trim())
+    .filter((item) => item !== '' && !item.startsWith('at ErrorBoundary'))
 
   useEffect(
     () => {
@@ -33,24 +37,26 @@ const Details: FunctionComponent<DetailsProps> = (props) => {
 
   const clickOverlay = (event: MouseEvent<HTMLDivElement>) => {
     if (overlayRef.current && event.target === overlayRef.current) {
-      event.stopPropagation();
-      closeDetails();
+      clickClose(event);
     }
   };
+
+  const clickClose = (event: MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    closeDetails();
+  }
 
   return (
     <div ref={overlayRef} className="error-details-overlay" onClick={clickOverlay}>
       <div className="error-details-container">
-        <div className="error-details-close" onClick={closeDetails}>
-          <div>
-            X
-          </div>
+        <div className="error-details-close" onClick={clickClose}>
+          X
         </div>
         <div className="error-details-title">
           {error?.message || 'An Error Ocurred'}
         </div>
         <div className="error-details-content">
-          <Detail stack={componentStack} name="Component" />
+          <Detail stack={filtered} name="Component" />
           {callStack.length > 0 &&
             <Detail stack={callStack} name="Call" />
           }

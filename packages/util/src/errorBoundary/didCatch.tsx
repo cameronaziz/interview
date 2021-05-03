@@ -1,5 +1,5 @@
 import React, { Component, ErrorInfo } from 'react';
-import './styles.css';
+import '../../assets/styles/errorBoundary.css';
 import ErrorUI from './ui';
 
 class ErrorBoundary extends Component {
