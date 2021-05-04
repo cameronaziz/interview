@@ -1,3 +1,4 @@
+import { displayErrorWrapper } from '@tkmp-interview/util';
 import React, { Fragment, useEffect, useState } from 'react';
 import cookieService from '../services/cookie';
 import Consent from './consent';
@@ -30,4 +31,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default displayErrorWrapper(App);

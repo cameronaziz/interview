@@ -8,7 +8,7 @@
     "node_modules/**": true,
     "packages/app/craco.config.js": true,
     "packages/app/node_modules": true,
-    "packages/app/publics": true,
+    "packages/app/public": true,
     "packages/app/src/react-app-env.d.ts": true,
     "packages/app/tsconfig.json": true,
     "packages/server": true,
