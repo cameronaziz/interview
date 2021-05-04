@@ -5,14 +5,16 @@ import { EXPERIMENT_ID } from '../../settings';
 import Badge from './badge';
 import './styled.css';
 
-const Hero = () => {
+const Hero = (props) => {
   const [experimentAssignment, setExperimentAssignment] = useState(null);
 
   useEffect(
     () => {
-      getExperiment();
+      if (props.isConsent) {
+        getExperiment();
+      }
     },
-    [],
+    [props.isConsent],
   );
 
   const getExperiment = async () => {

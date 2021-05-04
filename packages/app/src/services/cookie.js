@@ -20,9 +20,8 @@ const read = (key) => {
 }
 
 const write = (key, value, listener) => {
-  const date = new Date();
-  const expires = date.toUTCString();
-  const cookie = `${keyToUnique(key)}=${value}; expires=${expires};`;
+  const oneYear = 60*60*24*365;
+  const cookie = `${keyToUnique(key)}=${value}; max-age=${oneYear}`;
 
   document.cookie = cookie;
 

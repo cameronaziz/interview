@@ -14,7 +14,7 @@ const Line: FunctionComponent<LineProps> = (props) => {
     <div className="tooltip-line">
       {Array.isArray(line) ?
         line.map((attribute) =>
-          <Attribute attribute={attribute} />
+          <Attribute key={attribute.toString()} attribute={attribute} />
         ) :
         <Attribute attribute={line} />
       }

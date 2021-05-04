@@ -5,7 +5,7 @@ const Button = (props) => {
   const { buttonType, onClick } = props;
   const buttonTypeClass = buttonType === 'confirm' ? 'consent-confirm-button' : 'consent-reject-button';
 
-  const handlClick = () => {
+  const handleClick = () => {
     onClick(buttonType === 'confirm');
   };
 

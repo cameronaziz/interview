@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Hero />
+      <Hero isConsent={isConsent} />
       <Consent isConsent={isConsent} cookieListener={listener} />
     </Fragment>
   );
