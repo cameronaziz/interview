@@ -8,8 +8,9 @@
     "packages/app/craco.config.js": true,
     "packages/app/node_modules": true,
     "packages/app/public": true,
+    "packages/app/src/react-app-env.d.ts": true,
     "packages/app/tsconfig.json": true,
-    "packages/serve": true,
+    "packages/server": true,
     "packages/util": true,
     "start.js": true,
     "yarn.lock": true
