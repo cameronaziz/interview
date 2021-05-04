@@ -3,6 +3,7 @@
     "!packages/app/src/**": true,
     ".gitignore": true,
     ".vscode": true,
+    "assets": true,
     "node_modules/**": true,
     "packages/app/craco.config.js": true,
     "packages/app/node_modules": true,
