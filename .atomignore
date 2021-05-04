@@ -1,0 +1,16 @@
+.gitignore
+.vscode
+assets
+public
+node_modules/
+.atomignore
+packages/app/craco.config.js
+packages/app/node_modules": true,
+packages/app/public": true,
+packages/app/src/react-app-env.d.ts
+packages/app/tsconfig.json
+packages/server
+packages/util
+start.js
+yarn.lock
+package.json
