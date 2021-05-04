@@ -1,15 +1,15 @@
-import { errorBoundary } from '@tkmp-interview/util';
+import { displayErrorWrapper } from '@tkmp-interview/util';
 import React from 'react';
 
 const Button = (props) => {
   const { buttonType, onClick } = props;
   const buttonTypeClass = buttonType === 'confirm' ? 'consent-confirm-button' : 'consent-reject-button';
 
+  const label = buttonType === 'confirm' ? 'Allow' : 'Deny';
+
   const handlClick = () => {
     onClick(buttonType === 'confirm');
   };
-
-  const label = buttonType === 'confirm' ? 'Allow' : 'Deny';
 
   return (
     <button
@@ -21,4 +21,4 @@ const Button = (props) => {
   );
 };
 
-export default errorBoundary(Button);
+export default displayErrorWrapper(Button);

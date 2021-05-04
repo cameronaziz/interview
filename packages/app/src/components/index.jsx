@@ -1,16 +1,15 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import cookie from '../services/cookie';
+import cookieService from '../services/cookie';
 import Consent from './consent';
 import Hero from './hero';
-import { cookieValueToBoolean } from './utils';
 
 const App = () => {
   const [isConsent, setIsConsent] = useState(null);
 
   useEffect(
     () => {
-      const consent = cookie.read('consent');
-      const result = cookieValueToBoolean(consent);
+      const consent = cookieService.read('consent');
+      const result = cookieService.valueToBoolean(consent);
       setIsConsent(result);
     },
     [],
@@ -18,7 +17,7 @@ const App = () => {
 
   const listener = (cookie) => {
     if (cookie.key === 'consent') {
-      const result = cookieValueToBoolean(cookie.value);
+      const result = cookieService.valueToBoolean(cookie.value);
       setIsConsent(result);
     }
   };

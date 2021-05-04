@@ -1,6 +1,6 @@
-const UNIQUE_KEY = 'tkmp-cookie-storage_';
+import { COOKIE_UNIQUE_KEY } from '../settings';
 
-const keyToUnique = (key) => `${UNIQUE_KEY}${key}`;
+const keyToUnique = (key) => `${COOKIE_UNIQUE_KEY}${key}`;
 
 const read = (key) => {
   const cookies = document.cookie.split(';').map((c) => {
@@ -34,9 +34,24 @@ const write = (key, value, listener) => {
   }
 };
 
+const valueToBoolean = (value) => {
+  switch (value) {
+    case 'true': {
+      return true
+    }
+    case 'false': {
+      return false
+    }
+    default: {
+      return null
+    };
+  }
+};
+
 const cookie = {
   read,
   write,
+  valueToBoolean,
 };
 
 export default cookie;

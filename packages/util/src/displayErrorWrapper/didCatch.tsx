@@ -1,8 +1,7 @@
 import React, { Component, ErrorInfo } from 'react';
-import '../../assets/styles/errorBoundary.css';
-import ErrorUI from './ui';
+import ErrorUI from './errorUI';
 
-class ErrorBoundary extends Component {
+class DisplayErrorWrapper extends Component {
   state = { error: null, errorInfo: null };
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
@@ -25,4 +24,4 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary;
+export default DisplayErrorWrapper;

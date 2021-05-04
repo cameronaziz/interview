@@ -1,2 +1,3 @@
-export { default as errorBoundary } from './errorBoundary';
+export { default as displayErrorWrapper } from './displayErrorWrapper';
 export { default as TKWW } from './tkww';
+

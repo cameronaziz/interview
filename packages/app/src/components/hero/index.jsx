@@ -1,9 +1,8 @@
-import { errorBoundary, TKWW } from '@tkmp-interview/util';
+import { displayErrorWrapper, TKWW } from '@tkmp-interview/util';
 import React, { useEffect, useState } from 'react';
 import experiments from '../../api/experiments';
 import { EXPERIMENT_ID } from '../../settings';
 import Badge from './badge';
-import './styled.css';
 
 const Hero = () => {
   const [experimentAssignment, setExperimentAssignment] = useState(null);
@@ -30,4 +29,4 @@ const Hero = () => {
   );
 };
 
-export default errorBoundary(Hero);
+export default displayErrorWrapper(Hero);

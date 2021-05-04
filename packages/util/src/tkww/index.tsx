@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import '../../assets/styles/tkww.css';
-import errorBoundary from '../errorBoundary';
 
 const TKWW: FunctionComponent = () => (
   <div className="tkww-icon">
@@ -42,4 +41,4 @@ const TKWW: FunctionComponent = () => (
   </div>
 );
 
-export default errorBoundary(TKWW);
+export default TKWW;

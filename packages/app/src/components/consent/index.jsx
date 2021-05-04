@@ -1,8 +1,7 @@
-import { errorBoundary } from '@tkmp-interview/util';
+import { displayErrorWrapper } from '@tkmp-interview/util';
 import React, { useEffect, useState } from 'react';
-import cookie from '../../services/cookie';
+import cookieService from '../../services/cookie';
 import Button from './button';
-import './styles.css';
 
 const Consent = (props) => {
   const { isConsent, cookieListener } = props;
@@ -18,7 +17,7 @@ const Consent = (props) => {
   );
 
   const handleClick = (value) => {
-    cookie.write('consent', value, cookieListener);
+    cookieService.write('consent', value, cookieListener);
     setIsShown(false);
   };
 
@@ -41,4 +40,4 @@ const Consent = (props) => {
   );
 };
 
-export default errorBoundary(Consent);
+export default displayErrorWrapper(Consent);

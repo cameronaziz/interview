@@ -1,4 +1,5 @@
 import React, { ErrorInfo, FunctionComponent, useState } from 'react';
+import '../../assets/styles/displayErrorWrapper.css';
 import Details from './details';
 
 interface ErrorUIProps {
